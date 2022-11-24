@@ -143,5 +143,5 @@ TextButton.MouseButton1Click:Connect(function()
 	OpenFrame.Visible = false
 	end)
 else
-	game.Players.LocalPlayer.Kick("WRONG GAME!")
+	game.Players.LocalPlayer:Kick("WRONG GAME!")
 end

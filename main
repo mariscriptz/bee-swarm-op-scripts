@@ -11,12 +11,13 @@ local pepsiswarm = Instance.new("TextButton")
 local X = Instance.new("TextButton")
 local andromeda = Instance.new("TextButton")
 local sorry = Instance.new("TextLabel")
+local OpenFrame = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
 
 --Properties:
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ScreenGui.ResetOnSpawn = false
 
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = ScreenGui
@@ -25,6 +26,7 @@ MainFrame.Position = UDim2.new(0.379303455, 0, 0.13132295, 0)
 MainFrame.Size = UDim2.new(0, 241, 0, 302)
 MainFrame.Active = true
 MainFrame.Draggable = true
+
 
 Title.Name = "Title"
 Title.Parent = MainFrame
@@ -61,8 +63,9 @@ pepsiswarm.TextScaled = true
 pepsiswarm.TextSize = 14.000
 pepsiswarm.TextWrapped = true
 pepsiswarm.MouseButton1Click:Connect(function()
-	shared.autoload = "" -- change to profile name if you want to autoload (afking/autojoin). eg. shared.autoload = "profile"
-	loadstring(game:GetObjects("rbxassetid://4384103988")[0X1].Source)("Pepsi Swarm")
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/max0mind/lua/main/loader.lua'))()
+
+
 end)
 
 
@@ -78,6 +81,11 @@ X.TextColor3 = Color3.fromRGB(0, 0, 0)
 X.TextScaled = true
 X.TextSize = 14.000
 X.TextWrapped = true
+X.MouseButton1Click:Connect(function()
+	MainFrame.Visible = false
+	OpenFrame.Visible = true
+end)
+
 
 andromeda.Name = "andromeda"
 andromeda.Parent = MainFrame
@@ -91,11 +99,12 @@ andromeda.TextScaled = true
 andromeda.TextSize = 14.000
 andromeda.TextWrapped = true
 andromeda.MouseButton1Click:Connect(function()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/max0mind/lua/main/loader.lua'))()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/max0mind/lua/main/loader.lua'))()
 
 
 end)
-
+	
+	
 sorry.Name = "sorry"
 sorry.Parent = MainFrame
 sorry.BackgroundColor3 = Color3.fromRGB(150, 0, 255)
@@ -108,7 +117,30 @@ sorry.Text = "sorry thats it"
 sorry.TextColor3 = Color3.fromRGB(0, 0, 0)
 sorry.TextScaled = true
 sorry.TextSize = 14.000
-	sorry.TextWrapped = true
-else 
-	game.Players.LocalPlayer.Kick("WRONG GAME MAAM, SIR, OR THEY.")
+sorry.TextWrapped = true
+
+OpenFrame.Name = "OpenFrame"
+OpenFrame.Parent = ScreenGui
+OpenFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+OpenFrame.BackgroundTransparency = 1.010
+OpenFrame.Position = UDim2.new(0, 0, 0.564202309, 0)
+OpenFrame.Size = UDim2.new(0, 152, 0, 60)
+OpenFrame.Active = true
+	
+TextButton.Parent = OpenFrame
+TextButton.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+TextButton.Position = UDim2.new(0, 0, 0.116666667, 0)
+TextButton.Size = UDim2.new(0, 147, 0, 50)
+TextButton.Font = Enum.Font.Unknown
+TextButton.Text = "Bee swarm OP Scripts"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+TextButton.MouseButton1Click:Connect(function()
+	MainFrame.Visible = true
+	OpenFrame.Visible = false
+	end)
+else
+	game.Players.LocalPlayer.Kick("WRONG GAME!")
 end

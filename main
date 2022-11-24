@@ -63,7 +63,8 @@ pepsiswarm.TextScaled = true
 pepsiswarm.TextSize = 14.000
 pepsiswarm.TextWrapped = true
 pepsiswarm.MouseButton1Click:Connect(function()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/max0mind/lua/main/loader.lua'))()
+		shared.autoload = "" -- change to profile name if you want to autoload (afking/autojoin). eg. shared.autoload = "profile"
+		loadstring(game:GetObjects("rbxassetid://4384103988")[0X1].Source)("Pepsi Swarm")
 
 
 end)
